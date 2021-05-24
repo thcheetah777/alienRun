@@ -29,10 +29,8 @@ function slimeSetup(phaser) {
       // Go to checkpoint
       player.x = game.checkpoint;
 
-      // // Create crates
-      // world.crates.forEach(x => {
-      //   game.crates.create(x, 580, "crate").setCollideWorldBounds(true).setScale(0.6);
-      // });
+      // Increment deaths
+      game.deaths++;
     }
   });
 }

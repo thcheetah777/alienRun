@@ -17,9 +17,22 @@ function sawSetup(phaser) {
     // Go to checkpoint
     player.x = game.checkpoint;
 
-    // // Create crates
-    // world.crates.forEach(x => {
-    //   game.crates.create(x, 580, "crate").setCollideWorldBounds(true).setScale(0.6);
-    // });
+    // Increment deaths
+    game.deaths++;
+  });
+
+  // Collider Crates, Saws
+  phaser.physics.add.collider(game.crates, game.saws, function(crate, saw) {
+    // SFX
+    game.explosionSound.play();
+
+    // Create
+    let crates = game.crates.create(crate.xPos, crate.yPos, "crate");
+    crates.setCollideWorldBounds(true).setScale(0.6).setDragX(1000);
+    crates.xPos = crate.xPos;
+    crates.yPos = crate.yPos;
+
+    // Destroy
+    crate.destroy();
   });
 }

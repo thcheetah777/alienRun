@@ -14,4 +14,19 @@ function animsUpdate() {
   game.slimeBlocks.getChildren().forEach(sprite => {
     sprite.anims.play("slime", true);
   });
+  game.laserShooters.getChildren().forEach(sprite => {
+    if (sprite.active) {
+      game.lasers.getChildren().forEach(sprite => {
+        sprite.destroy();
+      });
+      for (var i = 0; i < 8; i++) {
+        game.lasers.create(sprite.x, (i * 70) + (sprite.height * 2), "laser");
+      }
+    } else {
+      game.lasers.getChildren().forEach(sprite => {
+        sprite.destroy();
+      });
+      sprite.active = true;
+    }
+  });
 }

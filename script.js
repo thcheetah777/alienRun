@@ -9,6 +9,7 @@ function preload() {
   // Backgrounds
   this.load.image("mushroomBackground", "assets/imgs/mushroomBackground.png");
   this.load.image("forestBackground", "assets/imgs/forestBackground.png");
+  this.load.image("desertBackground", "assets/imgs/desertBackground.png");
 
   // Flag
   this.load.image("flagDown", "assets/imgs/flagDown.png");
@@ -29,6 +30,16 @@ function preload() {
   // Crate
   this.load.image("crate", "assets/imgs/crate.png");
 
+  // Laser shooter
+  this.load.image("laserShooter", "assets/imgs/laserShooter.png");
+
+  // Button
+  this.load.image("buttonInactive", "assets/imgs/buttonInactive.png");
+  this.load.image("buttonActive", "assets/imgs/buttonActive.png");
+
+  // Laser
+  this.load.image("laser", "assets/imgs/laser.png");
+
   // SFX
   // Checkpoint
   this.load.audio("checkpoint", "assets/sfx/checkpoint.ogg");
@@ -36,6 +47,7 @@ function preload() {
   // Backgrounds
   this.load.audio("mushroomBackground", "assets/sfx/mushroomBackground.mp3");
   this.load.audio("forestBackground", "assets/sfx/forestBackground.mp3");
+  this.load.audio("desertBackground", "assets/sfx/desertBackground.mp3");
 
   // Die
   this.load.audio("die", "assets/sfx/die.mp3");
@@ -58,17 +70,20 @@ function create() {
   // Flags setup
   flagSetup(this);
 
+  // Mushroom setup
+  mushroomSetup(this);
+
+  // Crates setup
+  crateSetup(this);
+
   // Saws setup
   sawSetup(this);
 
   // Slime setup
   slimeSetup(this);
 
-  // Mushroom setup
-  mushroomSetup(this);
-
-  // Crates setup
-  crateSetup(this);
+  // Lasers setup
+  laserSetup(this);
 
   // Animation setup
   animsSetup(this);
@@ -106,7 +121,7 @@ const config = {
 
       // Options
       enableBody: true,
-      debug: true
+      // debug: true
     }
   },
 
